@@ -1,31 +1,17 @@
-name: Deploy site (GitHub Pages)
+name: Deploy site to GitHub Pages
 
 on:
   push:
-    branches: [ main, master ]
+    branches:
+      - main
+      - master
 
 jobs:
-  build-and-deploy:
+  deploy:
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout repository
+      - name: Checkout code
         uses: actions/checkout@v4
-
-      - name: Setup Node.js
-        uses: actions/setup-node@v4
-        with:
-          node-version: '18'
-
-      - name: Install dependencies (for optional MCP probe)
-        run: npm ci
-
-      - name: Optional: probe DevTools MCP (non-blocking)
-        if: ${{ secrets.MCP_WS_URL != '' }}
-        env:
-          MCP_WS_URL: ${{ secrets.MCP_WS_URL }}
-        run: |
-          echo "Probing MCP at $MCP_WS_URL"
-          node .github/scripts/mcp-probe.mjs "$MCP_WS_URL" || echo "MCP probe failed or unreachable (continuing)"
 
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v3
