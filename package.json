@@ -1,0 +1,10 @@
+{
+  "name": "devtools-mcp-website",
+  "version": "1.0.0",
+  "type": "module",
+  "private": true,
+  "license": "MIT",
+  "dependencies": {
+    "ws": "^8.13.0"
+  }
+}

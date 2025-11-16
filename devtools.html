@@ -1,0 +1,57 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Chrome DevTools MCP Server — 介绍</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header class="container site-header">
+    <div class="brand">
+      <div class="logo">DT</div>
+      <div>
+        <div style="font-weight:700">DevTools MCP</div>
+        <div class="meta">Chrome 调试协议扩展</div>
+      </div>
+    </div>
+    <nav class="nav">
+      <a href="index.html">首页</a>
+      <a href="gdg.html">GDG & DevFest</a>
+      <a href="devtools.html">DevTools MCP</a>
+      <a href="about.html">关于我</a>
+    </nav>
+  </header>
+
+  <main class="container">
+    <section class="section">
+      <h2>什么是 Chrome DevTools MCP Server</h2>
+      <p class="muted">MCP（MitM Chrome Protocol / Managed Chrome Proxy）Server 是一种用于管理与代理 Chrome DevTools Protocol (CDP) 会话的服务层。通过 MCP，多个客户端可以更方便地连接、复用或记录 DevTools 会话，实现远程调试、自动化测试与可视化追踪。</p>
+    </section>
+
+    <section class="section">
+      <h2>典型功能</h2>
+      <ul class="muted">
+        <li>代理与复用 DevTools 会话</li>
+        <li>记录/回放 DevTools 指令</li>
+        <li>权限/多租户管理（团队协作）</li>
+        <li>用于 CI 的自动化调试入口</li>
+      </ul>
+    </section>
+
+    <section class="section">
+      <h2>Workshop 中的实践要点</h2>
+      <ol class="muted">
+        <li>在本地启动 MCP Server，连接 Chrome 实例</li>
+        <li>使用 DevTools 客户端复用会话进行元素检查与网络抓包</li>
+        <li>实现简单的脚本化操作（截屏、性能快照、控制台日志收集）</li>
+      </ol>
+    </section>
+
+  </main>
+
+  <footer class="container footer">
+    <div class="muted">回到 <a href="index.html">首页</a></div>
+  </footer>
+</body>
+</html>
