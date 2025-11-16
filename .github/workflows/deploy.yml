@@ -20,7 +20,7 @@ jobs:
         run: npm ci
 
       - name: Optional: probe DevTools MCP (non-blocking)
-        if: ${{ secrets.MCP_WS_URL }}
+        if: ${{ secrets.MCP_WS_URL != '' }}
         env:
           MCP_WS_URL: ${{ secrets.MCP_WS_URL }}
         run: |
