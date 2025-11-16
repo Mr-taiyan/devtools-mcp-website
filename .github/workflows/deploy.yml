@@ -20,10 +20,12 @@ jobs:
         run: npm ci
 
       - name: Optional: probe DevTools MCP (non-blocking)
-        if: ${{ secrets.MCP_WS_URL != '' }}
+        if: ${{ secrets.MCP_WS_URL }}
+        env:
+          MCP_WS_URL: ${{ secrets.MCP_WS_URL }}
         run: |
-          echo "Probing MCP at ${{ secrets.MCP_WS_URL }}"
-          node .github/scripts/mcp-probe.mjs "${{ secrets.MCP_WS_URL }}" || echo "MCP probe failed or unreachable (continuing)"
+          echo "Probing MCP at $MCP_WS_URL"
+          node .github/scripts/mcp-probe.mjs "$MCP_WS_URL" || echo "MCP probe failed or unreachable (continuing)"
 
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v3
